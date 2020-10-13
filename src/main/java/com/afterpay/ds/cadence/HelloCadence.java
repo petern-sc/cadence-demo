@@ -40,13 +40,6 @@ public class HelloCadence {
 
         @Override
         public void sayHello(String name) {
-//            while (!"Bye".equals(greeting)) {
-//                logger.info(++count + ": " + greeting + " " + name + "!");
-//                String oldGreeting = greeting;
-//                Workflow.await(() -> !Objects.equals(greeting, oldGreeting));
-//            }
-//            logger.info(++count + ": " + greeting + " " + name + "!");
-
             Workflow.sleep(Duration.ofSeconds(10));
 
             logger.info(++count + ": " + greeting + " " + name + "!");

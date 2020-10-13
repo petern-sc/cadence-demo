@@ -6,7 +6,10 @@ import com.uber.cadence.client.WorkflowClient;
 
 public class StartWorkflow {
     public static void main(String[] args) throws InterruptedException {
-        WorkflowClient workflowClient = WorkflowClient.newInstance("192.168.0.249", 7933, "domain");
+        String cadenceUrl = System.getenv("CADENCE_URL");
+        String cadenceDomain = System.getenv("CADENCE_DOMAIN");
+        
+        WorkflowClient workflowClient = WorkflowClient.newInstance(cadenceUrl, 7933, cadenceDomain);
 
         for (int i = 0; i < 100; i++) {
 
