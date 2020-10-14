@@ -8,12 +8,9 @@ export CADENCE_DOMAIN=<to be the cadence domain>
 
 # run the application
 
-./gradlew run
-
-# Schedule a simple job to cadence
-
-cadence --ad <your-cadence-domain>:7933 --do ds-test  workflow start --tasklist helloWorldTaskList  --workflow_type HelloWorld::sayHello --execution_timeout 3600 --input \"World\"
+./gradlew -PmainClass=com.afterpay.ds.cadence.HelloCadence execute
+./gradlew -PmainClass=com.afterpay.ds.cadence.StartWorkflow execute --args='some message'
 
 ```
 
-You should expect console prints out "Hello World" in `10` seconds 
+Messages (`some message`) will be logged out from your HelloCadence app, with a 10 second delay.
